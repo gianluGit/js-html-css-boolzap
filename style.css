@@ -10,22 +10,151 @@
   clear: both;
 }
 
+/* inizio contatti */
 .container .contatti {
   float: left;
-  width: 300px;
+  width: 350px;
   height: 100vh;
-  /* debug */
-  background-color: green;
 }
 
+.contatti .contatti-fixed {
+  position: fixed;
+  top: 0px;
+  left: 0;
+  width: 350px;
+  z-index: 9;
+}
+.contatti .rubrica {
+  margin-top: 170px;
+  overflow-y: auto;
+}
+
+.contatti .top-bar-content {
+  height: 60px;
+  background-color: #e6e6e6;
+  border-right: 1px solid grey;
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.contatti .top-bar-content .contact-option i {
+  color: grey;
+  font-size: 20px;
+  margin-left: 10px;
+}
+
+.contatti .silent-bar {
+  height: 70px;
+  background-color: #99e6ff;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  cursor: pointer;
+}
+
+.contatti .silent-bar .silent-icon {
+  width: 45px;
+  height: 45px;
+  background-color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contatti .silent-bar .silent-icon i {
+  font-size: 20px;
+  color: #99e6ff;
+}
+
+.silent-bar .silent-bar-info {
+  margin-left: 5px;
+}
+
+.silent-bar .silent-bar-info a {
+  display: block;
+  color: black;
+  text-decoration: none;
+}
+
+.silent-bar .silent-bar-info a:last-child {
+  color: grey;
+  font-size: 13px;
+}
+
+.silent-bar .silent-bar-info a:last-child:hover {
+  text-decoration: underline;
+}
+
+.contatti .cerca-contatti {
+  height: 40px;
+  background-color: #e6e6e6;
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+}
+
+.contatti .search-contact-icon {
+  height: 70%;
+  background-color: #fff;
+  padding: 0 30px;
+  display: flex;
+  align-items: center;
+}
+
+.contatti .search-contact-icon i {
+  color: grey;
+}
+
+.contatti .cerca-contatti input {
+  width: 90%;
+  height: 70%;
+  border: none;
+}
+
+.contatti .contatto-rubrica {
+  height: 80px;
+  background-color: #fff;
+  border-bottom: 1px solid grey;
+  padding: 0 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.contatti .contatto-rubrica .profile-img {
+  background-color: lightgrey;
+}
+
+.contatto-rubrica .contact-name {
+  margin-left: 10px;
+}
+
+.contatto-rubrica span {
+  color: lightgrey;
+  font-size: 13px;
+}
+
+.contatto-rubrica #ora {
+  position: absolute;
+  top: 20px;
+  right: 10px;
+}
+
+/* inizio chat */
 .container .chat {
   float: left;
-  width: calc(100% - 300px);
+  width: calc(100% - 350px);
   height: 100vh;
+  margin-top: 60px;
   overflow: auto;
   /* debug */
   background-color: pink;
 }
+
 
 .chat .top-bar {
   display: flex;
@@ -35,6 +164,11 @@
   height: 60px;
   padding: 15px;
   background-color: #e6e6e6;
+
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: calc(100% - 350px);
 }
 
 .friend-info-left {
@@ -42,7 +176,7 @@
   align-items: center;
 }
 
-.friend-info-left .profile-img {
+.profile-img {
   width: 45px;
   height: 45px;
   background-color: #fff;
@@ -68,7 +202,7 @@
   position: fixed;
   bottom: 0;
   right: 0;
-  width: calc(100% - 300px);
+  width: calc(100% - 350px);
   height: 60px;
   background-color: #e6e6e6;
   opacity: 0.7;
