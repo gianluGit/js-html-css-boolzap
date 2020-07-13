@@ -86,6 +86,10 @@
   cursor: pointer;
 }
 
+.chat-fixed .chat-fixed-content .invio {
+  display: none;
+}
+
 .chat-fixed .chat-fixed-content input {
   width: 80%;
   padding: 12px;
@@ -101,13 +105,13 @@
   height: 100%;
   margin: auto;
   padding-top: 30px;
-  background-color: lightgrey;
+  /* background-color: lightgrey; */
 }
 
 .messaggio {
   width: 120px;
   height: auto;
-  /* background-color: lightgreen; */
+  margin-bottom: 10px;
   padding: 10px;
   border-radius: 10px;
 }
