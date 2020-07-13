@@ -1,0 +1,123 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.container .contatti {
+  float: left;
+  width: 300px;
+  height: 100vh;
+  /* debug */
+  background-color: green;
+}
+
+.container .chat {
+  float: left;
+  width: calc(100% - 300px);
+  height: 100vh;
+  overflow: auto;
+  /* debug */
+  background-color: pink;
+}
+
+.chat .top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 60px;
+  padding: 15px;
+  background-color: #e6e6e6;
+}
+
+.friend-info-left {
+  display: flex;
+  align-items: center;
+}
+
+.friend-info-left .profile-img {
+  width: 45px;
+  height: 45px;
+  background-color: #fff;
+  border-radius: 50%;
+}
+
+.friend-info-left .friend-name {
+  margin-left: 10px;
+}
+
+.friend-info-left .friend-name span {
+  font-size: 12px;
+  color: grey;
+}
+
+.friend-info-right i {
+  font-size: 20px;
+  color: grey;
+  margin-left: 10px;
+}
+
+.chat .chat-fixed {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: calc(100% - 300px);
+  height: 60px;
+  background-color: #e6e6e6;
+  opacity: 0.7;
+}
+
+.chat-fixed .chat-fixed-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 100%;
+}
+
+.chat-fixed .chat-fixed-content i {
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.chat-fixed .chat-fixed-content input {
+  width: 80%;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+}
+
+/* balloons chat */
+.chat .balloons {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  height: 100%;
+  margin: auto;
+  padding-top: 30px;
+  background-color: lightgrey;
+}
+
+.messaggio {
+  width: 120px;
+  height: auto;
+  /* background-color: lightgreen; */
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.messaggio.green {
+  background-color: lightgreen;
+  align-self: flex-end;
+}
+
+.messaggio.white {
+  background-color: white;
+  align-self: flex-start;
+}
