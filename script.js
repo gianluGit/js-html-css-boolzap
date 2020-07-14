@@ -37,7 +37,7 @@ function initInvioMessaggio() {
   invioMessaggio();
 
   $(document).keydown(function() {
-    console.log(event.which);
+    // console.log(event.which);
     if (event.which == 13) {
       clickInvio();
     }
@@ -63,10 +63,16 @@ function initInvioMessaggio() {
 
 // funzione per intercettare l'input di sinistra e cercare i contatti
 function cercaContatti() {
-  
+  var inputContatti = $('.cerca-contatti input');
+  inputContatti.on('keyup', function() {
+    var inputVal = $(this).val().toLowerCase();
+    $('.contatto-rubrica').filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(inputVal) > -1);
+    });
+    console.log(inputVal);
+  });
+
 }
-
-
 
 
 
