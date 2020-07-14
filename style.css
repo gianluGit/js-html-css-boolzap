@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Lato', sans-serif;
 }
 
 .container::after {
@@ -15,6 +16,7 @@
   float: left;
   width: 350px;
   height: 100vh;
+  overflow-y: auto;
 }
 
 .contatti .contatti-fixed {
@@ -26,7 +28,6 @@
 }
 .contatti .rubrica {
   margin-top: 170px;
-  overflow-y: auto;
 }
 
 .contatti .top-bar-content {
@@ -134,7 +135,7 @@
 }
 
 .contatto-rubrica span {
-  color: lightgrey;
+  color: grey;
   font-size: 13px;
 }
 
@@ -144,15 +145,22 @@
   right: 10px;
 }
 
+.contatto-rubrica:hover {
+  background-color: #e6e6e6;
+}
+
+.contatto-rubrica:hover .profile-img {
+  background-color: #fff;
+}
+
 /* inizio chat */
 .container .chat {
   float: left;
   width: calc(100% - 350px);
-  height: 100vh;
-  margin-top: 60px;
-  overflow: auto;
-  /* debug */
-  background-color: pink;
+  height: calc(100vh - 60px);
+  padding-top: 67px;
+  overflow-y: auto;
+  background-color: #FFEBCD;
 }
 
 
@@ -160,7 +168,6 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 100%;
   height: 60px;
   padding: 15px;
   background-color: #e6e6e6;
@@ -205,13 +212,13 @@
   width: calc(100% - 350px);
   height: 60px;
   background-color: #e6e6e6;
-  opacity: 0.7;
+  opacity: 0.8;
 }
 
 .chat-fixed .chat-fixed-content {
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  padding: 0 20px;
   height: 100%;
 }
 
@@ -229,6 +236,7 @@
   padding: 12px;
   border: none;
   border-radius: 5px;
+  margin: 0 80px;
 }
 
 /* balloons chat */
@@ -238,8 +246,6 @@
   width: 80%;
   height: 100%;
   margin: auto;
-  padding-top: 30px;
-  /* background-color: lightgrey; */
 }
 
 .messaggio {
@@ -248,6 +254,15 @@
   margin-bottom: 10px;
   padding: 10px;
   border-radius: 10px;
+  position: relative;
+}
+
+.messaggio .time {
+  position: absolute;
+  bottom: 5px;
+  right: 4px;
+  font-style: italic;
+  font-size: 10px;
 }
 
 .messaggio.green {
@@ -258,4 +273,24 @@
 .messaggio.white {
   background-color: white;
   align-self: flex-start;
+}
+
+.messaggio .dropdown-delete {
+  width: 90px;
+  background-color: #fff;
+  box-shadow: 1px 1px 10px black;
+  position: absolute;
+  display: none;
+  z-index: 3;
+}
+
+.messaggio .dropdown-delete a {
+  display: block;
+  text-decoration: none;
+  color: black;
+  padding: 10px;
+}
+
+.dropdown-delete.active {
+  display: block;
 }
