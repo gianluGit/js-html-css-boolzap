@@ -53,13 +53,23 @@ function initInvioMessaggio() {
 
 }
 
-// function initCancellaMessaggio() {
-//   var messaggio = $('#target .messaggio');
-//   messaggio.on('click', function() {
-//     $(this).children('.dropdown-delete').addClass('active');
-//     console.log(this);
-//   });
-// }
+// funzione per cancellare il messaggio
+function initCancellaMessaggio() {
+  $(document).on('click', '.messaggio', function() {
+    $(this).children('.dropdown-delete').addClass('active');
+  });
+
+  $(document).on('click', '#delete', function() {
+    $(this).parents('.messaggio').remove();
+  });
+
+  $('.balloons').click(function() {
+    var checkActive = $('.dropdown-delete').hasClass('active');
+    if (checkActive == true) {
+      $('.dropdown-delete').removeClass('active');
+    }
+  });
+}
 
 // funzione per intercettare l'input di sinistra e cercare i contatti
 function cercaContatti() {
@@ -74,6 +84,25 @@ function cercaContatti() {
 
 }
 
+// funzione per iniziare una nuova conversazione cliccando sul contatto
+function initNewChat() {
+  var selezionaContatto = $('.contatto-rubrica');
+  selezionaContatto.click(function() {
+    // cambio il nome in base al contatto selezionato
+    var nomeContatto = $(this).find('h4').text();
+    $('.friend-name h4').text(nomeContatto);
+    console.log(nomeContatto);
+
+
+    // var contactData = $(this).data('id');
+    // $('#target').hide();
+    // $('#target[data-id="' + contactData + '"]').show();
+  
+  });
+
+
+}
+
 
 
 
@@ -81,6 +110,7 @@ function cercaContatti() {
 
 $(document).ready(function() {
   initInvioMessaggio();
-  // initCancellaMessaggio();
+  initCancellaMessaggio();
   cercaContatti();
+  initNewChat();
 });
