@@ -1,17 +1,17 @@
 function initInvioMessaggio() {
   function clickInvio() {
     var valoreInput = $('.chat-fixed input').val();
-    $('.template .messaggio > .txt').text(valoreInput);
-    $('.template .messaggio > .time').text(generaOraAttuale);
-    var cloneMsg = $('.template .messaggio').clone().addClass('green');
-    $('#target').append(cloneMsg);
+    var cloneMsg = $('.template .messaggio').clone();
+    cloneMsg.find('.txt').text(valoreInput);
+    cloneMsg.find('.time').text(generaOraAttuale);
+    cloneMsg.addClass('green');
+    $('.balloons').append(cloneMsg);
     $('.chat-fixed input').val('');
     if (valoreInput == '') {
       cloneMsg.hide();
     } else if (valoreInput != '') {
       setTimeout(rispostaInt, 1000);
     }
-    console.log($('#target'));
 
   }
 
@@ -23,10 +23,11 @@ function initInvioMessaggio() {
 
   // funzione per avere la risposta dell'interlocutore dopo 1 secondo
   function rispostaInt() {
-    $('.template .messaggio .txt').text('Ok');
-    $('.template .messaggio .time').text(generaOraAttuale);
-    var cloneInt = $('.template .messaggio').clone().addClass('white');
-    $('#target').append(cloneInt);
+    var cloneInt = $('.template .messaggio').clone();
+    cloneInt.find('.txt').text('Ok');
+    cloneInt.find('.time').text(generaOraAttuale);
+    cloneInt.addClass('white');
+    $('.balloons').append(cloneInt);
   }
 
   function invioMessaggio() {
@@ -73,13 +74,29 @@ function initCancellaMessaggio() {
 
 // funzione per intercettare l'input di sinistra e cercare i contatti
 function cercaContatti() {
+  // var inputContatti = $('.cerca-contatti input');
+  // inputContatti.on('keyup', function() {
+  //   var inputVal = $(this).val().toLowerCase();
+  //   $('.contatto-rubrica').filter(function() {
+  //     $(this).toggle($(this).text().toLowerCase().indexOf(inputVal) > -1);
+  //   });
+  //   console.log(inputVal);
+  // });
+
   var inputContatti = $('.cerca-contatti input');
   inputContatti.on('keyup', function() {
     var inputVal = $(this).val().toLowerCase();
-    $('.contatto-rubrica').filter(function() {
-      $(this).toggle($(this).text().toLowerCase().indexOf(inputVal) > -1);
+    var contact = $('.contatto-rubrica');
+    console.log(name);
+    contact.each(function() {
+      var name = $(this).find('h4').text();
+      console.log(name);
+      if (name.toLowerCase().includes(inputVal)) {
+        $(this).show();
+      } else {
+        $(this).hide();
+      }
     });
-    console.log(inputVal);
   });
 
 }
@@ -92,12 +109,24 @@ function initNewChat() {
     var nomeContatto = $(this).find('h4').text();
     $('.friend-name h4').text(nomeContatto);
     console.log(nomeContatto);
+    var profileImg = $(this).find('.profile-img img').clone();
+    $('.friend-info-left img').remove();
+    $('.friend-info-left .profile-img').append(profileImg);
+    console.log(profileImg);
+
+    selezionaContatto.removeClass('active');
+    $(this).addClass('active');
 
 
-    // var contactData = $(this).data('id');
-    // $('#target').hide();
-    // $('#target[data-id="' + contactData + '"]').show();
-  
+    var contactData = $(this).data('id');
+    console.log(contactData);
+
+    var containerConv = $('.balloons');
+    var selectConv = $('.balloons[data-id=' + contactData + ']');
+
+    containerConv.hide();
+    selectConv.show();
+
   });
 
 

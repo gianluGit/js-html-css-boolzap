@@ -126,8 +126,18 @@
   position: relative;
 }
 
+.contatto-rubrica.active {
+  background-color: #bfbfbf;
+}
+
 .contatti .contatto-rubrica .profile-img {
   background-color: lightgrey;
+}
+
+.profile-img img {
+  width: 100%;
+  height: auto;
+  border-radius: 100%;
 }
 
 .contatto-rubrica .contact-name {
@@ -146,12 +156,12 @@
 }
 
 .contatto-rubrica:hover {
-  background-color: #e6e6e6;
+  background-color: #bfbfbf;
 }
 
-.contatto-rubrica:hover .profile-img {
+/* .contatto-rubrica:hover .profile-img {
   background-color: #fff;
-}
+} */
 
 /* inizio chat */
 .container .chat {
@@ -203,7 +213,7 @@
 .friend-info-right i {
   font-size: 20px;
   color: grey;
-  margin-left: 10px;
+  margin-left: 40px;
 }
 
 .chat .chat-fixed {
@@ -291,6 +301,7 @@
   color: black;
   padding: 10px;
 }
+
 
 .dropdown-delete.active {
   display: block;
