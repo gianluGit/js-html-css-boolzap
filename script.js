@@ -5,7 +5,7 @@ function initInvioMessaggio() {
     cloneMsg.find('.txt').text(valoreInput);
     cloneMsg.find('.time').text(generaOraAttuale);
     cloneMsg.addClass('green');
-    $('.balloons').append(cloneMsg);
+    $('.chat-container.active .balloons').append(cloneMsg);
     $('.chat-fixed input').val('');
     if (valoreInput == '') {
       cloneMsg.hide();
@@ -21,13 +21,17 @@ function initInvioMessaggio() {
     return date.getHours() + ':' + date.getMinutes();
   }
 
+  function ultimoAccesso() {
+    $('.friend-name #ultimo-accesso').text(generaOraAttuale);
+  }
+
   // funzione per avere la risposta dell'interlocutore dopo 1 secondo
   function rispostaInt() {
     var cloneInt = $('.template .messaggio').clone();
     cloneInt.find('.txt').text('Ok');
     cloneInt.find('.time').text(generaOraAttuale);
     cloneInt.addClass('white');
-    $('.balloons').append(cloneInt);
+    $('.chat-container.active .balloons').append(cloneInt);
   }
 
   function invioMessaggio() {
@@ -36,9 +40,9 @@ function initInvioMessaggio() {
   }
 
   invioMessaggio();
+  ultimoAccesso();
 
   $(document).keydown(function() {
-    // console.log(event.which);
     if (event.which == 13) {
       clickInvio();
     }
@@ -57,18 +61,11 @@ function initInvioMessaggio() {
 // funzione per cancellare il messaggio
 function initCancellaMessaggio() {
   $(document).on('click', '.messaggio', function() {
-    $(this).children('.dropdown-delete').addClass('active');
+    $(this).children('.dropdown-delete').toggle();
   });
 
   $(document).on('click', '#delete', function() {
     $(this).parents('.messaggio').remove();
-  });
-
-  $('.balloons').click(function() {
-    var checkActive = $('.dropdown-delete').hasClass('active');
-    if (checkActive == true) {
-      $('.dropdown-delete').removeClass('active');
-    }
   });
 }
 
@@ -112,7 +109,6 @@ function initNewChat() {
     var profileImg = $(this).find('.profile-img img').clone();
     $('.friend-info-left img').remove();
     $('.friend-info-left .profile-img').append(profileImg);
-    console.log(profileImg);
 
     selezionaContatto.removeClass('active');
     $(this).addClass('active');
@@ -121,11 +117,11 @@ function initNewChat() {
     var contactData = $(this).data('id');
     console.log(contactData);
 
-    var containerConv = $('.balloons');
-    var selectConv = $('.balloons[data-id=' + contactData + ']');
+    var containerConv = $('.chat-container');
+    var selectConv = $('.chat-container[data-id=' + contactData + ']');
 
-    containerConv.hide();
-    selectConv.show();
+    containerConv.removeClass('active');
+    selectConv.addClass('active');
 
   });
 

@@ -113,6 +113,7 @@
   width: 90%;
   height: 70%;
   border: none;
+  outline: none;
 }
 
 .contatti .contatto-rubrica {
@@ -127,7 +128,7 @@
 }
 
 .contatto-rubrica.active {
-  background-color: #bfbfbf;
+  background-color: #e6e6e6;
 }
 
 .contatti .contatto-rubrica .profile-img {
@@ -156,12 +157,9 @@
 }
 
 .contatto-rubrica:hover {
-  background-color: #bfbfbf;
+  background-color: #e6e6e6;
 }
 
-/* .contatto-rubrica:hover .profile-img {
-  background-color: #fff;
-} */
 
 /* inizio chat */
 .container .chat {
@@ -181,6 +179,7 @@
   height: 60px;
   padding: 15px;
   background-color: #e6e6e6;
+  cursor: pointer;
 
   position: fixed;
   top: 0;
@@ -246,8 +245,9 @@
   width: 80%;
   padding: 12px;
   border: none;
-  border-radius: 5px;
+  border-radius: 30px;
   margin: 0 80px;
+  outline: none;
 }
 
 /* balloons chat */
@@ -259,13 +259,38 @@
   margin: auto;
 }
 
+.chat-container.active {
+  display: block;
+}
+
+.chat-container {
+  display: none;
+  height: 100%;
+}
+
 .messaggio {
-  width: 120px;
+  min-width: 10%;
+  max-width: 30%;
   height: auto;
   margin-bottom: 10px;
   padding: 10px;
   border-radius: 10px;
   position: relative;
+}
+
+
+.messaggio .txt {
+  display: inline-block;
+  margin-bottom: 5px;
+}
+
+.messaggio i {
+  font-size: 13px;
+  display: none;
+}
+
+.messaggio:hover i {
+  display: inline-block;
 }
 
 .messaggio .time {
@@ -289,10 +314,11 @@
 .messaggio .dropdown-delete {
   width: 90px;
   background-color: #fff;
-  box-shadow: 1px 1px 10px black;
+  box-shadow: 1px 1px 5px black;
   position: absolute;
   display: none;
   z-index: 3;
+  border-radius: 10%;
 }
 
 .messaggio .dropdown-delete a {
@@ -300,9 +326,4 @@
   text-decoration: none;
   color: black;
   padding: 10px;
-}
-
-
-.dropdown-delete.active {
-  display: block;
 }
