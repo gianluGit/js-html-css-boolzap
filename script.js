@@ -13,6 +13,8 @@ function initInvioMessaggio() {
       setTimeout(rispostaInt, 1000);
     }
 
+
+
   }
 
   // funzione per generare l'ora attuale
@@ -84,10 +86,8 @@ function cercaContatti() {
   inputContatti.on('keyup', function() {
     var inputVal = $(this).val().toLowerCase();
     var contact = $('.contatto-rubrica');
-    console.log(name);
     contact.each(function() {
       var name = $(this).find('h4').text();
-      console.log(name);
       if (name.toLowerCase().includes(inputVal)) {
         $(this).show();
       } else {
@@ -105,7 +105,6 @@ function initNewChat() {
     // cambio il nome in base al contatto selezionato
     var nomeContatto = $(this).find('h4').text();
     $('.friend-name h4').text(nomeContatto);
-    console.log(nomeContatto);
     var profileImg = $(this).find('.profile-img img').clone();
     $('.friend-info-left img').remove();
     $('.friend-info-left .profile-img').append(profileImg);
